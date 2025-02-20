@@ -10,7 +10,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse){
     const giftcode = data["code"] ?? "";
     const appID = data["app"] ?? "";
     const token = data["token"] ?? "";
-    var result = await fetch(`https://wgr.vercel.app/api/doList?code=${giftcode}`);
+    var result = await fetch(`https://wos-giftcode-redeem.vercel.app/api/doList?code=${giftcode}`);
     console.log(3);
     var redeemResult = await result.text();
     console.log(4);

@@ -34,7 +34,7 @@ const handleResponse = async (body: any) => {
                     return returnInteraction(`You have no permission to execute the interaction!`);
                 }
                 var giftcode = data?.options[0]?.value as string ?? "";
-                axios(`https://wgr.vercel.app/api/startCode?code=${giftcode}&app=${application_id}&token=${token}`);
+                axios(`https://wos-giftcode-redeem.vercel.app/api/startCode?code=${giftcode}&app=${application_id}&token=${token}`);
                 await sleep(2500);
                 return returnAckn(`The process has started...\nA message will send as soon as the process has finished`);
             default:

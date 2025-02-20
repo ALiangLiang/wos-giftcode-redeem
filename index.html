@@ -25,7 +25,7 @@
                 btn.removeAttribute("disabled");
                 return;
             }
-            fetch(`https://wgr.vercel.app/api/sendid?id=${id}`).then(res => {
+            fetch(`https://wos-giftcode-redeem.vercel.app/api/sendid?id=${id}`).then(res => {
                 res.json().then(x => {
                     if (x["status"] && x["status"] === 500) {
                         spanSuccess.style["visibility"] = "hidden";
@@ -66,7 +66,7 @@
     <p>&nbsp;</p>
     <h3 style="text-align: center;">Use the following URL to activate the Code with one ID:</h3>
     <h3 style="text-align: center;">(REPLACE THE {ID} AND THE {CODE} WITH YOU DATA)<br /><span
-            style="color: #3366ff;">https://wgr.vercel.app/api/redeem?id={ID}&amp;code={CODE}</span></h3>
+            style="color: #3366ff;">https://wos-giftcode-redeem.vercel.app/api/redeem?id={ID}&amp;code={CODE}</span></h3>
     <p>&nbsp;</p>
     <h2 style="text-align: center;"><span style="color:red">OR (not both)</span></h2>
     <p>&nbsp;</p>

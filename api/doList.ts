@@ -11,7 +11,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     if (data["debug"] !== undefined) debug = true;
     if (data["code"] === undefined) return res.json({ message: "NO CODE" });
     const myPromise = new Promise(async (resolve, reject) => {
-        var resp = await fetch("https://wgr.vercel.app/api/getIDs");
+        var resp = await fetch("https://wos-giftcode-redeem.vercel.app/api/getIDs");
         var proms = new Set();
         resp = await resp.json();
         if (resp["ids"] === undefined) {
@@ -25,7 +25,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         for (let i = 0; i < ids.length; i++) {
             let playerID = `${ids[i]}`;
             console.log(`${i + 1}/${ids.length}`);
-            let p = fetchPlayerRedeems<RedeemResponse>(`https://wgr.vercel.app/api/redeem?id=${playerID}&code=${code}&useList=1`);
+            let p = fetchPlayerRedeems<RedeemResponse>(`https://wos-giftcode-redeem.vercel.app/api/redeem?id=${playerID}&code=${code}&useList=1`);
             proms.add(p);
         }
         var r: Data[] = await Promise.all(proms) as Data[];
